@@ -1,0 +1,33 @@
+{
+  "name": "diagnosys",
+  "version": "1.0.0",
+  "description": "Combatting Misdiagnosis",
+  "main": "node/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sluh-hackclub/diagnosys.git"
+  },
+  "keywords": [
+    "big-data",
+    "machine-learning",
+    "flex-tape",
+    "hipaa",
+    "neural-network",
+    "artificial-intelligence"
+  ],
+  "author": "SLUH Hack Club",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sluh-hackclub/diagnosys/issues"
+  },
+  "homepage": "https://github.com/sluh-hackclub/diagnosys#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "morgan": "^1.9.0"
+  }
+}
