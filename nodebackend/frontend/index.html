@@ -1,114 +1,137 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DiagnoSys</title>
+<head>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-    <link rel="stylesheet" type="text/css"href="homepage.css">
-  </head>
-  <body>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <img src="DiagnoSysLogo.png" class="logo">
-        </div>
-        <div class="navbar-link is-link" >
-          <a href="#"> DiagnoSys Main Page</a>
-        </div>
-        <div class="navbar-link is-link" >
-          <a href="/login">Doctor Sign In</a>
-        </div>
-        <div class="navbar-link is-link">
-            <a href="https://www.hackchicago.io"> Hack Chicago</a>
-        </div>
-        <div class="navbar-link is-link">
-          <a href="https://www.sluh.org"> St. Louis University High School</a>
-        </div>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <base href="/" />
+  <style>
+    /* .modal {
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      display: none;
+    }
 
-    </nav>
-    <section>
-      <header class="videoHeader">
-        <div class="videoContainer">
-          <video autoplay playsinline muted loop height="100%">
-          <source src="enterVideo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    .modal-content {
+      box-shadow: 0 0 10px #999;
+    }
+
+    body {
+      position: relative;
+    } */
+    .navbar-item {
+      max-height: 100px;
+    }
+    .navbar {
+      border-bottom: 4px solid #1ba0c1;
+    }
+    .patient-label {
+      background: #1ba0c1;
+      color: white;
+    }
+    .is-diagnosys {
+      background: #1ba0c1;
+      color: white;
+      border: unset;
+    }
+    .banner {
+      background-image: linear-gradient(rgba(52, 73, 94, 0.70), rgba(52, 73, 94, 0.70)), url('http://www.health3-0.com/wp-content/uploads/2014/02/Patient-In-Hospital-Bed-1280x853-670x300.jpg');
+      background-size: cover;
+      width: 100%;
+      height: 80%;
+      position: relative;
+      background-position: center center;
+      background-repeat: no-repeat;
+     /* set min height */
+    }
+    #banner-text {
+      color: white;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .info-box {
+      border: 1px solid #1ba0c1;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body class="has-navbar-fixed-top" style="background-color: hsl(0, 0%, 96%)">
+  <nav class="navbar is-fixed-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item">
+          <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/NEW1.png" style="max-height: 50px"/>
+        </a>
       </div>
-      <div class="videoCoversCover">
-        <h1 class="videoCover">
-          <br><b>Secure Medical Infrastructure<br>Preserving Your Medical Records</b>
-        </h1>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a href="login.html"><button class="button is-success is-outlined is-rounded">Login</button></a>
+          </div>
+        </div>
       </div>
-      </header>
-    </section>
-    <section class="box" style="background-color:#1ba0c1" style="margin-top:0px">
-      <section class="box centerText" style="margin-bottom:1%; font-size:50px;">
-        <em><b>"Twelve million Americans are misdiagnosed each year"<a href="https://www.cbsnews.com/news/12-million-americans-misdiagnosed-each-year-study-says/"> - CBS News</a> </b></em>
-      </section>
-      <section class=" backCardColor">
-        <div class="columns is-mobile">
-          <div class="column">
-            <div class ="box backCardColor">
-                DiagnoSys is a Modern Infrastructure agent as a Service, using Artificial Intelligence and Machine learning we are able to assistant doctors in decreasing the number of medical misdiagnoses in the US.
+    </div>
+  </nav>
 
-            <!-- This will be used to talk about the project -->
+  <div class="banner">
+    <div class="container" style="">
+      <div id="banner-text">
+        <div style="max-width: 30%;">
+          <p class="title is-2" style="color: white;">
+            Mitigating Misdiagnosis
+          </p>
+          <p class="subtitle is-4" style="color: white;">
+            The all in one Hospital Management Solution
+          </p>
+          <button class="button is-diagnosys">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <div class="box info-box" style="text-align: center">
+              <p class="subtitle is-4">
+                Patient Record Management
+              </p>
+              <p>
+                <span class="icon" style="font-size: 3em">
+                  <i class="fas fa-file-alt"></i>
+                </span>
+              </p>
             </div>
           </div>
           <div class="column">
-            <div class ="box backCardColor">
-              DiagnoSys serves to assist Doctors using predictive analysis combined with prior symptoms to give a conclusion about the possible diagnosis of a patient, and also enforces peer review in the medical community.
-              <!-- This will be used to talk about the project -->
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="box" style="background-color:#1ba0c1">
-        <div class="columns is-mobile">
-          <div class="column">
-            <div class ="box">
-              Our Intern Wrangler Sean O'Brien leads the front end and coffee development team.<br>
-              <br>His assistant and Esteemed Vice Admiral of Front End development is David Thuita, his powers of web development include translating java into javascript.<br>
-              <br>Graphic Designer Chris Jiang is apart of the Front End and leads the Logo Design team.
-              <!-- This will be used for an about the team section -->
+            <div class="box info-box" style="text-align: center">
+              <p class="subtitle is-4">
+                Machine Assisted Diagnosis
+              </p>
+              <p>
+                <span class="icon" style="font-size: 3em">
+                  <i class="fas fa-code-branch"></i>
+                </span>
+              </p>
             </div>
           </div>
           <div class="column">
-            <div class ="box">
-              Our Team leader Micah See leads the team in Back End and Cringe development.<br>
-              <br> His assistant and Lead Memer Daniel Blittschau leads the the team in Node.js development.<br>
-              <br> Our final team member, Alvin Alaphat, leads the team in Machine Learning development.
-            <br>  <!-- This will be used for a about the team section -->
+            <div class="box info-box" style="text-align: center">
+              <p class="subtitle is-4">
+                Physician Collaboration and Tracking
+              </p>
+              <p>
+                <span class="icon" style="font-size: 3em">
+                  <i class="fas fa-user-md"></i>
+                </span>
+              </p>
             </div>
           </div>
         </div>
-      </section>
-
-    <footer class="box" style="background-color:#1ba0c1">
-        <div class="is-grouped field is-mobile centerText">
-          <div class=" centerText">
-            <a href="DiagnoSys.tech" class="button is-link is-medium is-outlined"> DiagnoSys Home </a>
-            <!--  This will be used for a link to the top of this website  -->
-          </div>
-          <div class=" centerText">
-            <a href="https://www.sluh.org/" class="button is-link is-medium is-outlined">SLUH</a>
-            <!--  This will be used for a link to SLUH's Website  -->
-          </div>
-          <div class="centerText">
-            <a href="https://hackchicago.io/" class="button is-link is-medium is-outlined">Hack Chicago </a>
-            <!--  This will be used for a link to Hack Chicago's Website  -->
-          </div>
-        </div>
-        <div class="centerText">
-
-            Micah See - Email : <a href="mailto:2020691@sluh.org?Subject=DiagnoSys%20Project"> 2020691@sluh.org</a>
-
-        </div>
-        <div class="centerText">
-            Sean O'Brien - Email : <a href="mailto:2019520@sluh.org?Subject=DiagnoSys%20Project"> 2019520@sluh.org</a>
-        </div>
-    </footer>
-  </section>
-  </body>
-</html>
+      </div>
+    </div>
+  </div>
+</body>
