@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-utf-8" />
+  <meta name="viewport" content="width=device-width, intial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"></script>
+  <style>
+  .pFix{
+    font-size: 15px;
+    color: #ffffff;
+    padding-left: 10px;
+  }
+  .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #0187e1;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+  }
+
+  .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #ffffff;
+      display: block;
+      transition: 0.2s;
+  }
+
+  .sidenav a:hover {
+      color: #999999;
+  }
+
+  .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 90px;
+      transition: 0.1s;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  .nav .nav-toggle span{
+    background-color: #999999;
+  }
+  </style>
+  </head>
+<body style="background-color:#ffffff">
+
+  <div class="hero">
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <aside class="menu">
+              <p class="menu-label title pFix">General</p>
+              <ul class="menu-list">
+                <li><a>Dashboard</a></li>
+              </ul>
+              <p class="menu-label title pFix">New Case</p>
+              <ul class="menu-list">
+                <li><a>Create New Cases</a></li>
+              </ul>
+              <p class="menu-label title pFix">Existing Cases</p>
+              <ul class="menu-list">
+                <li><a>Pending/Ready Cases</a></li>
+              </ul>
+              <p class="menu-label title pFix">Records</p>
+              <ul class="menu-list">
+                <li><a>Historical Records</a></li>
+              </ul>
+            </aside>
+
+    </div>
+    <div>
+      <span style="font-size:55px;background-color:#ffffff;cursor:pointer;padding-top:30px;padding-left:10px" onclick="openNav()">&#9776;</span>
+      <div class="is-pulled-right">
+        <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/DiagnoSysLOGO.png" height="100" width="250" />
+      </div>
+    </div>
+      <section class="item-list">
+        <div class="block">
+          <figure class="image">
+            <img src="https://www.henryschein.com/us-en/images/medical/sections-facilities-ambulatory.jpg" height="100" width="250" />
+          </figure>
+        </div>
+      </section>
+    </div>
+
+  <script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+
+</div>
+</body>
+</html>
