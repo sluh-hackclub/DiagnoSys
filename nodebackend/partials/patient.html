@@ -1,0 +1,170 @@
+<head>
+
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <base href="/" />
+  <style>
+    /* .modal {
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      display: none;
+    }
+
+    .modal-content {
+      box-shadow: 0 0 10px #999;
+    }
+
+    body {
+      position: relative;
+    } */
+    .navbar {
+      border-bottom: 2px solid #1ba0c1;
+    }
+    .patient-label {
+      background: #1ba0c1;
+      color: white;
+    }
+    .is-diagnosys {
+      background: #1ba0c1;
+      color: white;
+      border: unset;
+    }
+  </style>
+</head>
+<body class="has-navbar-fixed-top" style="background-color: hsl(0, 0%, 96%)">
+  <nav class="navbar is-fixed-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item">
+          <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/NEW1.png" style="max-height: 50px"/>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item">
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="section">
+    <div class="container">
+      <div class="notification patient-label">
+        Patient 1385
+      </div>
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <div class="box">
+            <!-- <progress class="progress is-warning" value="65" max="100">In Progress</progress> -->
+            <div class="field is-grouped is-grouped-multiline">
+              <div class="control">
+                <span class="tag is-warning">Status: Pending...</span>
+              </div>
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-success">Primary</span>
+                  <span class="tag">Dr. Bob S.</span>
+                </div>
+              </div>
+              <div class="control">
+                <span class="tags has-addons">
+                  <span class="tag is-success">Secondary</span>
+                  <span class="tag">Dr. Phil C.</span>
+                </span>
+              </div>
+              <div class="control">
+                <span class="tag is-danger">Symptom Dispute</span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Add a Symptom</label>
+              <div class="control">
+                <div class="select">
+                  <select>
+                    <option>
+                      Coughing
+                    </option>
+                    <option>
+                      Weakness
+                    </option>
+                    <option>
+                      Short of breath
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="tile is-ancestor" style="flex-wrap: wrap">
+              <div class="tile is-parent is-4">
+                <div class="tile is-child notification" style="vertical-align: center">
+                  Coughing <button class="delete"></button>
+                </div>
+              </div>
+              <div class="tile is-parent is-4">
+                <div class="tile is-child notification">
+                  Weakness <button class="delete"></button>
+                </div>
+              </div>
+              <div class="tile is-parent is-4">
+                <div class="tile is-child notification">
+                  Nausea <button class="delete"></button>
+                </div>
+              </div>
+              <div class="tile is-parent is-4">
+                <div class="tile is-child notification">
+                  Vomiting <button class="delete"></button>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Other Notes</label>
+              <textarea class="textarea"></textarea>
+            </div>
+            <div class="control">
+              <button class="button is-rounded is-diagnosys">Save Changes</button>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="box">
+            <aside class="menu">
+              <p class="menu-label">
+                General
+              </p>
+              <ul class="menu-list">
+                <li>
+                  <a>Home</a>
+                </li>
+                <li>
+                  <a class="is-active">Dashboard</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+              <p class="menu-label">
+                Actions
+              </p>
+              <ul class="menu-list">
+                <li>
+                  <a>Patients</a>
+                  <ul>
+                    <li>
+                      <a>Manage Patients</a>
+                    </li>
+                    <li>
+                      <a>Process Diagnosis</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

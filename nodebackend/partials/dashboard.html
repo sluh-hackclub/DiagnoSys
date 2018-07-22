@@ -1,0 +1,211 @@
+<head>
+
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <base href="/" />
+  <style>
+    /* .modal {
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      display: none;
+    }
+
+    .modal-content {
+      box-shadow: 0 0 10px #999;
+    }
+
+    body {
+      position: relative;
+    } */
+    .navbar-item {
+      max-height: 100px;
+    }
+    .navbar {
+      border-bottom: 2px solid #1ba0c1;
+    }
+  </style>
+</head>
+<body class="has-navbar-fixed-top" style="background-color: hsl(0, 0%, 96%)">
+  <nav class="navbar is-fixed-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item">
+          <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/NEW1.png" style="max-height: 50px"/>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="section">
+    <div class="container">
+      <div class="box">
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input is-fullwidth" type="text" placeholder="Patient Query..."/>
+          </div>
+          <div class="control">
+            <a class="button is-link">Search</a>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <div class="box">
+            <table class="table is-hoverable">
+              <thead>
+                <tr>
+                  <th>
+                    Patient Id
+                  </th>
+                  <th>
+                    Primary Doctor
+                  </th>
+                  <th>
+                    Secondary Doctor
+                  </th>
+                  <th>
+                    Diagnosis Status
+                  </th>
+                  <th>
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    1386
+                  </td>
+                  <td>
+                    Dr. Bob S.
+                  </td>
+                  <td>
+                    Dr. Phil C.
+                  </td>
+                  <td>
+                    <span class="tag is-danger">Overdue</span>
+                  </td>
+                  <td>
+                    <a href="patient.html"><button class="button">Edit</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    1385
+                  </td>
+                  <td>
+                    Dr. Bob S.
+                  </td>
+                  <td>
+                    Dr. Phil C.
+                  </td>
+                  <td>
+                    <span class="tag is-warning">Pending</span>
+                  </td>
+                  <td>
+                    <a href="patient.html"><button class="button">Edit</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    1376
+                  </td>
+                  <td>
+                    Dr. Bob S.
+                  </td>
+                  <td>
+                    Dr. Phil C.
+                  </td>
+                  <td>
+                    <span class="tag is-success">Completed</span>
+                  </td>
+                  <td>
+                    <button class="button">Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="box">
+            <aside class="menu">
+              <p class="menu-label">
+                General
+              </p>
+              <ul class="menu-list">
+                <li>
+                  <a>Home</a>
+                </li>
+                <li>
+                  <a class="is-active">Dashboard</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+              <p class="menu-label">
+                Actions
+              </p>
+              <ul class="menu-list">
+                <li>
+                  <a>Patients</a>
+                  <ul>
+                    <li>
+                      <a>Manage Patients</a>
+                    </li>
+                    <li>
+                      <a>Process Diagnosis</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" style="border-radius: 0">Search by Donor Name</span>
+      </div>
+      <input type="text" class="form-control" ng-model="donorName" ng-change="donorSearch()" style="border-radius: 0">
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" ng-repeat="donor in donors" ng-click="donorClick(donor.id)">
+              <div class="card-body">
+                {{donor.name}}
+                <br />
+                <small><i class="fa fa-home"></i> {{donor.address}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Would you like to create a new item for this donor or view their tax letter?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="taxletter()">View Tax Letter</button>
+        <button type="button" class="btn btn-primary" ng-click="createitem()">Create Item</button>
+      </div>
+    </div>
+  </div>
+  </div> -->
+
+</body>

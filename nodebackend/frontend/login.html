@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta  name="viewport" content= "width=device-width, intial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content=" ie=edge">
+<link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+<link rel= "stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Login | DiagnoSys</title>
+
+<style>
+.conHeight {
+  border:none;
+  height:700px;
+}
+.colHeight {
+  border:none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:500px;
+}
+.colHeight1 {
+  border:none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.cardHeight {
+  margin-top: 0px;
+  margin-bottom: 200px;
+  margin-right: 100px;
+  margin-left: 100px;
+  background-color: lightblue;
+}
+button {
+  height:50px;
+  width:100px;
+}
+body {
+  background-color:rgba(27, 160, 193, 0.5);
+  height: 100%;
+}
+html {
+  height: 100%;
+}
+  </style>
+</head>
+<body>
+  <figure class="image">
+    <img src="https://diagnosys.tech/DiagnoSysLOGONEW.png" style="position: absolute; top:0; z-index: 10; width: 20rem">
+  </figure>
+  <div class="container conHeight" style="max-width: none; width: 100%; height: 100%">
+    <div class="level-left colHeight1">
+      <figure class="image" style="position: absolute; top: 0">
+        <img src="https://diagnosys.tech/medical-web-designs.jpg">
+      </figure>
+    </div>
+    <div class="level-right colHeight">
+    <div class="card cardHeight">
+        <div class="card-content">
+          <p class="title is-centered"> Welcome </p>
+
+          <form action="/api/v1/login" method="post">
+            <div class="field">
+              <div class="control has-icons-left ">
+                <input class="input" type="email" name="email" placeholder="Email Address">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+                <div class= "control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+            </div>
+            <input type="submit" class="button is-success"></input>
+        </form>
+        </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div style= "margin-top:400px"></div> -->
+
+</body>
+</html>

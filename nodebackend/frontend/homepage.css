@@ -1,0 +1,50 @@
+
+.videoContainer{
+position:relative;
+}
+.container video{
+  position:relative;
+  z-index: -1;
+}
+.videoCover{
+  font-size: 50px;
+  font-family: "antenna",sans-serif;
+  color:#F1EDED;
+  text-align:center;
+}
+.videoCoversCover{
+  background: rgba(0,0,0,0);
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.centerText{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.navbarColor{
+  background-color:#1ba0c1;
+}
+.navbarColor :hover{
+  background-color:#1A93B1;
+}
+.logo{
+
+  height:50px;
+  width:50px;
+
+  vertical-align: center;
+
+}
+.backCardColor{
+  background-color: #1ba0c1;
+  
+}
