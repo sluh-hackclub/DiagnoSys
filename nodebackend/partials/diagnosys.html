@@ -1,0 +1,137 @@
+<head>
+
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <base href="/" />
+  <style>
+    /* .modal {
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      display: none;
+    }
+
+    .modal-content {
+      box-shadow: 0 0 10px #999;
+    }
+
+    body {
+      position: relative;
+    } */
+    .navbar-item {
+      max-height: 100px;
+    }
+    .navbar {
+      border-bottom: 4px solid #1ba0c1;
+    }
+    .patient-label {
+      background: #1ba0c1;
+      color: white;
+    }
+    .is-diagnosys {
+      background: #1ba0c1;
+      color: white;
+      border: unset;
+    }
+    .banner {
+      background-image: linear-gradient(rgba(52, 73, 94, 0.70), rgba(52, 73, 94, 0.70)), url('http://www.health3-0.com/wp-content/uploads/2014/02/Patient-In-Hospital-Bed-1280x853-670x300.jpg');
+      background-size: cover;
+      width: 100%;
+      height: 80%;
+      position: relative;
+      background-position: center center;
+      background-repeat: no-repeat;
+     /* set min height */
+    }
+    #banner-text {
+      color: white;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .info-box {
+      border: 1px solid #1ba0c1;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body class="has-navbar-fixed-top" style="background-color: hsl(0, 0%, 96%)">
+  <nav class="navbar is-fixed-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item">
+          <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/NEW1.png" style="max-height: 50px"/>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a href="login.html"><button class="button is-success is-outlined is-rounded">Login</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <div class="container" style="">
+      <div id="banner-text">
+        <div style="max-width: 30%;">
+          <p class="title is-2" style="color: white;">
+            Mitigating Misdiagnosis
+          </p>
+          <p class="subtitle is-4" style="color: white;">
+            The all in one Hospital Management Solution
+          </p>
+          <button class="button is-diagnosys">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <div class="box info-box" style="text-align: center">
+              <p class="subtitle is-4">
+                Patient Record Management
+              </p>
+              <p>
+                <span class="icon" style="font-size: 3em">
+                  <i class="fas fa-file-alt"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box info-box" style="text-align: center">
+              <p class="subtitle is-4">
+                Machine Assisted Diagnosis
+              </p>
+              <p>
+                <span class="icon" style="font-size: 3em">
+                  <i class="fas fa-code-branch"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box info-box" style="text-align: center">
+              <p class="subtitle is-4">
+                Physician Collaboration and Tracking
+              </p>
+              <p>
+                <span class="icon" style="font-size: 3em">
+                  <i class="fas fa-user-md"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
