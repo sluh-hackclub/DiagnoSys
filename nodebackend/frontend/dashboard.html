@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.7.1-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+
+<style>
+.example1{
+  background-image: url("DiagnoSysLOGO.png");
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+
+}
+.pad{
+  padding-top: 20px;
+  padding-right: 30px;
+}
+.blue{
+  background-color: rgb(27, 160, 193); /*rgb(27, 160, 193)*/
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3 pad">
+                <aside class="menu">
+                    <p class="menu-label">
+                        General
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="is-active">Dashboard</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        New Cases
+                    </p>
+                    <ul class="menu-list">
+                        <li><a>Create New Case</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        Records
+                    </p>
+                    <ul class="menu-list">
+                        <li><a>Historical Docs</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="column is-9"  background-image: url("DiagnoSysLOGO.png"); >
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="../">Home</a></li>
+                        <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li>
+                    </ul>
+                </nav>
+                <section class="hero is-small is-info">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Dashboard
+                            </h1>
+
+                        </div>
+                    </div>
+                </section>
+                <section class="info-tiles ">
+                    <div class="tile is-ancestor has-text-centered ">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box ">
+                                <p class="title">65 Cases</p>
+                                <p class="subtitle">Pending</p>
+                            </article>
+                        </div>
+                        <!--<div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">10</p>
+                                <p class="subtitle">Pending</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">5</p>
+                                <p class="subtitle">Ready</p>
+                            </article>
+                        </div>-->
+                        <div class="tile is-parent is-info is-centered">
+                          <figure class="image">
+                            <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/DiagnoSysLOGO.png" height="200px" width="300px">
+                          </figure>
+                        </div>
+
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">25 Cases</p>
+                                <p class="subtitle">Ready for Diagnosis</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Pending Cases
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire</td>
+                                                <td></td>
+                                                <td><a class="button is-small is-info" href="#">Examine</a></td>                                            </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire</td>
+                                                <td></td>
+                                                <td><a class="button is-small is-info" href="#">Examine</a></td>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire</td>
+                                                <td></td>
+                                                <td><a class="button is-small is-info" href="#">Examine</a></td>                                </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire</td>
+                                                <td></td>
+                                                <td><a class="button is-small is-info" href="#">Examine</a></td>                                          </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire</td>
+                                                <td></td>
+                                                <td><a class="button is-small is-info" href="#">Examine</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View All</a>
+                            </footer>
+                        </div>
+                    </div>
+
+
+
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Ready Cases
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                    </a>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire
+                                                Lorum ipsum dolem aire</td>
+                                                <td><a class="button is-small is-primary" id="Diagnose" href="#">Diagnose</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire
+                                                Lorum ipsum dolem aire</td>
+                                                <td><a class="button is-small is-primary" id="Diagnose" href="#">Diagnose</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire
+                                                Lorum ipsum dolem aire</td>
+                                                <td><a class="button is-small is-primary"id="Diagnose" href="#">Diagnose</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire
+                                                Lorum ipsum dolem aire</td>
+                                                <td><a class="button is-small is-primary"id="Diagnose" href="#">Diagnose</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-envelope"></i></td>
+                                                <td>Lorum ipsum dolem aire
+                                                Lorum ipsum dolem aire</td>
+                                                <td><a class="button is-small is-primary"id="Diagnose" href="#">Diagnose</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View All</a>
+                            </footer>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
