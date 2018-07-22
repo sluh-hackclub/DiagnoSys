@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 app.use('/api/v1', apiV1);
 
-app.use(express.static('./frontend', {
+app.use(express.static(__dirname + '/frontend', {
   extensions: ['html']
 }));
 
