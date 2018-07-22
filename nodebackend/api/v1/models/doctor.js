@@ -1,6 +1,15 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const doctorSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    lowercase: true,
+    validate: (value) => {
+      return validator.isEmail(value);
+    }
+  },
   first_name: {
     type: String,
     required: true,
@@ -14,12 +23,6 @@ const doctorSchema = new mongoose.Schema({
   hospital: {
     type: String,
     required: true,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
     trim: true
   },
   salt: {

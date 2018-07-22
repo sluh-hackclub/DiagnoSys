@@ -7,8 +7,12 @@ const session = require('express-session');
 
 const apiV1 = require('./api/v1/v1.js');
 
-// const mongodbAtlasConfig = require('./mongodb-atlas-config.json');
-// mongoose.connect('mongodb+srv://admin:' + mongodbAtlasConfig.password + '@cluster0-xo64m.mongodb.net/diagnosys?retryWrites=true')
+const mongodbAtlasConfig = require('./mongodb-atlas-config.json');
+mongoose.connect('mongodb+srv://admin:' + mongodbAtlasConfig.password + '@cluster0-xo64m.mongodb.net/diagnosys?retryWrites=true').then(() => {
+  console.log('Database connected');
+}).catch(err => {
+  console.error('Database connection error');
+});
 
 // log requests in console
 app.use(morgan('dev'));
