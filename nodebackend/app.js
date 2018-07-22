@@ -2,14 +2,22 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
+const mongoose = require('mongoose');
+const session = require('express-session');
 
 const apiV1 = require('./api/v1/v1.js');
 
+// const mongodbAtlasConfig = require('./mongodb-atlas-config.json');
+// mongoose.connect('mongodb+srv://admin:' + mongodbAtlasConfig.password + '@cluster0-xo64m.mongodb.net/diagnosys?retryWrites=true')
+
 // log requests in console
 app.use(morgan('dev'));
-
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+
+app.use(session({
+  secret: 'FIUVBw89rw7ctn98wepz7fnx'
+}));
 
 // Send CORS
 app.use((req, res, next) => {

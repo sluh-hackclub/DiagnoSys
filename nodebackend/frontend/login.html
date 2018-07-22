@@ -57,26 +57,26 @@
     <div class="card cardHeight">
         <div class="card-content">
           <p class="title is-centered"> Welcome </p>
-          <div class="field">
-            <div class="control has-icons-left ">
-              <input class="input" type="email" placeholder="Email Address">
-              <span class="icon is-small is-left">
-                <i class="fa fa-envelope"></i>
-              </span>
-            </div>
-          </div>
 
-          <div class="field">
-              <div class= "control has-icons-left">
-                <input class="input" type="password" placeholder="Password">
+          <form action="/api/v1/login" method="post">
+            <div class="field">
+              <div class="control has-icons-left ">
+                <input class="input" type="email" name="email" placeholder="Email Address">
                 <span class="icon is-small is-left">
-                  <i class="fa fa-lock"></i>
+                  <i class="fa fa-envelope"></i>
                 </span>
               </div>
-          </div>
-
-          <button class="button is-success">Login</button>
-
+            </div>
+            <div class="field">
+                <div class= "control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+            </div>
+            <input type="submit" class="button is-success"></input>
+        </form>
         </div>
     </div>
   </div>
