@@ -12,6 +12,7 @@ mongoose.connect('mongodb+srv://admin:' + mongodbAtlasConfig.password + '@cluste
   console.log('Database connected');
 }).catch(err => {
   console.error('Database connection error');
+  console.error(err);
 });
 
 // log requests in console
@@ -36,7 +37,7 @@ app.use((req, res, next) => {
 
 app.use('/api/v1', apiV1);
 
-app.use(express.static(__dirname + '/frontend', {
+app.use(express.static(path.join(__dirname, '/frontend'), {
   extensions: ['html']
 }));
 

@@ -5,7 +5,8 @@
   "main": "node/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node/server"
+    "start": "node node/server",
+    "lint": "semistandard --verbose"
   },
   "repository": {
     "type": "git",
@@ -32,5 +33,8 @@
     "mongoose": "^5.2.4",
     "morgan": "^1.9.0",
     "validator": "^10.4.0"
+  },
+  "devDependencies": {
+    "semistandard": "^12.0.1"
   }
 }

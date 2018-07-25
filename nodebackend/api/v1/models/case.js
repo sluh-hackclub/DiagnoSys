@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
+// const validator = require('validator');
 
 const caseSchema = new mongoose.Schema({
   symptoms: {

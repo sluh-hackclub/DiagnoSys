@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-const Doctor = require('./models/doctor.js');
+// const Doctor = require('./models/doctor.js');
 const Case = require('./models/case.js');
 
-function checkAuth(req, res, next) {
+function checkAuth (req, res, next) {
   if (req.session.email) {
     next();
   } else {
     res.status(401).json({
       success: false,
-      message: "Not authorized"
+      message: 'Not authorized'
     });
   }
 }
@@ -43,7 +43,8 @@ router.post('/create_case', checkAuth, (req, res, next) => {
       console.log(doc);
       res.status(200).json({
         success: true,
-        caseId: doc['_id']
+        caseId: doc['_id'],
+        doc: doc
       });
     }).catch(err => {
       console.log(err);
@@ -56,7 +57,7 @@ router.post('/create_case', checkAuth, (req, res, next) => {
     res.status(400).json({
       success: false,
       message: 'Bad request'
-  });
+    });
   }
 });
 
