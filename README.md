@@ -5,6 +5,8 @@
 [![Pull requests](https://img.shields.io/github/issues-pr-raw/sluh-hackclub/diagnosys.svg)](https://github.com/sluh-hackclub/diagnosys/pulls)
 [![Issues](https://img.shields.io/github/issues-raw/sluh-hackclub/diagnosys.svg)](https://github.com/sluh-hackclub/diagnosys/issues)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ba9126c664d00127f444/maintainability)](https://codeclimate.com/github/sluh-hackclub/diagnosys/maintainability)
+[![Dependencies](https://david-dm.org/sluh-hackclub/diagnosys.svg)](https://david-dm.org/sluh-hackclub/diagnosys)
+[![DevDependencies](https://david-dm.org/sluh-hackclub/diagnosys/dev-status.svg)](https://david-dm.org/sluh-hackclub/diagnosys?type=dev)
 
 SLUH Hack Club's Project for Hack Chicago 2018
 
