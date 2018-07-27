@@ -4,25 +4,50 @@ const morgan = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const dotenv = require('dotenv');
 
 const apiV1 = require('./api/v1/v1.js');
 
-const mongodbAtlasConfig = require('./mongodb-atlas-config.json');
-mongoose.connect('mongodb+srv://admin:' + mongodbAtlasConfig.password + '@cluster0-xo64m.mongodb.net/diagnosys?retryWrites=true').then(() => {
-  console.log('Database connected');
-}).catch(err => {
-  console.error('Database connection error');
-  console.error(err);
-});
+const acceptedDbTypes = ['mongodb'];
+
+dotenv.load({ path: '.env' });
+
+// check if the current db type is acceptable (in the array)
+if (acceptedDbTypes.indexOf(process.env.DB_TYPE) !== -1) {
+  if (process.env.DB_TYPE === 'mongodb') {
+    // check for required env variables
+    if (process.env.MONGO_HOST && process.env.MONGO_USER && process.env.MONGO_PW && process.env.MONGO_DB) {
+      mongoose.connect('mongodb+srv://' + process.env.MONGO_USER + ':' + process.env.MONGO_PW + '@' + process.env.MONGO_HOST + '/' + process.env.MONGO_DB + '?retryWrites=true').then(() => {
+        console.log('Database connected');
+      }).catch(err => {
+        console.error('Database connection error');
+        console.error(err);
+      });
+    } else {
+      console.log('MongoDB selected as DB_TYPE but missing env variables.');
+      process.exit(1);
+    }
+  } else {
+    // this won't happen but this is where other db cases go
+  }
+} else {
+  console.log('Unacceptable DB type');
+  process.exit(1);
+}
 
 // log requests in console
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-app.use(session({
-  secret: 'FIUVBw89rw7ctn98wepz7fnx'
-}));
+if (process.env.SESSION_SECRET) {
+  app.use(session({
+    secret: process.env.SESSION_SECRET
+  }));
+} else {
+  console.log('Missing env var SESSION_SECRET');
+  process.exit(1);
+}
 
 // Send CORS
 app.use((req, res, next) => {
