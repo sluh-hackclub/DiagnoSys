@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+<html>
 <head>
-
+  <title>Dashboard | DiagnoSys</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
   <base href="/" />
@@ -24,6 +27,23 @@
     .navbar {
       border-bottom: 2px solid #1ba0c1;
     }
+    body, html {
+      height: 100%;
+    }
+    #nav-thing-spacer {
+      width:100%;
+      min-width: 930px;
+    }
+    @media (max-width: 1088px) {
+      #nav-thing-spacer {
+        min-width: 0;
+      }
+    }
+    @media (min-width: 1088px) and (max-width: 1280px) {
+      #nav-thing-spacer {
+        min-width: 700px;
+      }
+    }
   </style>
 </head>
 <body class="has-navbar-fixed-top" style="background-color: hsl(0, 0%, 96%)">
@@ -31,8 +51,14 @@
     <div class="container">
       <div class="navbar-brand">
         <a href="/" class="navbar-item">
-          <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/NEW1.png" style="max-height: 50px"/>
+          <img src="/NEW1SMALL.png" style="max-height: 50px"/>
         </a>
+        <div id="nav-thing-spacer"></div>
+        <div style="display:flex;justify-content:flex-end;align-items:center;">
+          <div style="padding-right:.75rem;">
+            <button class="button is-danger is-outlined is-rounded">Logout</button>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -87,7 +113,7 @@
                     <span class="tag is-danger">Overdue</span>
                   </td>
                   <td>
-                    <a href="patient.html"><button class="button">Edit</button></a>
+                    <a href="/patient"><button class="button">Edit</button></a>
                   </td>
                 </tr>
                 <tr>
@@ -104,7 +130,7 @@
                     <span class="tag is-warning">Pending</span>
                   </td>
                   <td>
-                    <a href="patient.html"><button class="button">Edit</button></a>
+                    <a href="/patient"><button class="button">Edit</button></a>
                   </td>
                 </tr>
                 <tr>
@@ -121,7 +147,7 @@
                     <span class="tag is-success">Completed</span>
                   </td>
                   <td>
-                    <button class="button">Edit</button>
+                    <a href="/patient"><button class="button">Edit</button></a>
                   </td>
                 </tr>
               </tbody>
@@ -208,4 +234,29 @@
   </div>
   </div> -->
 
+<script type="text/javascript">
+
+const showPage = (loginState) => {
+  if (loginState.authenticated) {
+    document.body.className = document.body.className.replace("hidden","");
+    console.log('showing page');
+  } else {
+    window.location = window.location.origin + '/login';
+    console.log('redirecting');
+  }
+};
+var checkSessionURL = window.location.origin + '/api/v1/check_login';
+
+var checkSessionHTTP = new XMLHttpRequest();
+checkSessionHTTP.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    showPage(JSON.parse(this.responseText));
+  }
+};
+checkSessionHTTP.open('GET', checkSessionURL);
+checkSessionHTTP.send();
+
+</script>
+
 </body>
+</html>

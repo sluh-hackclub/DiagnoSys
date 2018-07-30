@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Login | DiagnoSys</title>
 <meta charset="UTF-8">
-<meta  name="viewport" content= "width=device-width, intial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content=" ie=edge">
-<link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-<link rel= "stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Login | DiagnoSys</title>
 
 <style>
@@ -49,12 +50,12 @@ html {
 </head>
 <body>
   <figure class="image">
-    <img src="https://diagnosys.tech/DiagnoSysLOGONEW.png" style="position: absolute; top:0; z-index: 10; width: 20rem">
+    <img src="/NEW1SMALL.png" style="position: absolute; top:0; z-index: 10; width: 20rem">
   </figure>
   <div class="container conHeight" style="max-width: none; width: 100%; height: 100%">
     <div class="level-left colHeight1">
       <figure class="image" style="position: absolute; top: 0">
-        <img src="https://diagnosys.tech/medical-web-designs.jpg">
+        <img src="/medical-web-designs.jpg">
       </figure>
     </div>
     <div class="level-right colHeight">
@@ -85,9 +86,24 @@ html {
     </div>
   </div>
 
+<script type="text/javascript">
 
+const showPage = (loginState) => {
+  if (loginState.authenticated) {
+    window.location = window.location.origin + '/dashboard';
+  }
+};
 
-  <!-- <div style= "margin-top:400px"></div> -->
+var checkSessionURL = window.location.origin + '/api/v1/check_login';
+var checkSessionHTTP = new XMLHttpRequest();
+checkSessionHTTP.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    showPage(JSON.parse(this.responseText));
+  }
+};
+checkSessionHTTP.open('GET', checkSessionURL);
+checkSessionHTTP.send();
 
+</script>
 </body>
 </html>

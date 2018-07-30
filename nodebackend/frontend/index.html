@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Diagnosys</title>
+<title>DiagnoSys</title>
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
   <base href="/" />
@@ -35,7 +35,7 @@
       border: unset;
     }
     .banner {
-      background-image: linear-gradient(rgba(52, 73, 94, 0.70), rgba(52, 73, 94, 0.70)), url('https://diagnosys.tech/patient-in-bed.jpeg');
+      background-image: linear-gradient(rgba(52, 73, 94, 0.70), rgba(52, 73, 94, 0.70)), url('/patient-in-bed.jpeg');
       background-size: cover;
       width: 100%;
       height: 80%;
@@ -55,6 +55,20 @@
       border: 1px solid #1ba0c1;
       border-radius: 0;
     }
+    #nav-thing-spacer {
+      width:100%;
+      min-width: 930px;
+    }
+    @media (max-width: 1088px) {
+      #nav-thing-spacer {
+        min-width: 0;
+      }
+    }
+    @media (min-width: 1088px) and (max-width: 1280px) {
+      #nav-thing-spacer {
+        min-width: 700px;
+      }
+    }
   </style>
 </head>
 <body class="has-navbar-fixed-top" style="background-color: hsl(0, 0%, 96%)">
@@ -62,16 +76,22 @@
     <div class="container">
       <div class="navbar-brand">
         <a href="/" class="navbar-item">
-          <img src="https://raw.githubusercontent.com/sluh-hackclub/diagnosys/master/logo/NEW1.png" style="max-height: 50px"/>
+          <img src="/NEW1SMALL.png" style="max-height: 50px"/>
         </a>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <a href="login"><button class="button is-success is-outlined is-rounded">Login</button></a>
+        <div id="nav-thing-spacer"></div>
+        <div style="display:flex;justify-content:flex-end;align-items:center;">
+          <div style="padding-right:.75rem;">
+            <a href="/login"><button class="button is-success is-outlined is-rounded">Login</button></a>
           </div>
         </div>
       </div>
+      <!-- <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a href="/login"><button class="button is-success is-outlined is-rounded">Login</button></a>
+          </div>
+        </div>
+      </div> -->
     </div>
   </nav>
 
