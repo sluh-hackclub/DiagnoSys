@@ -28,6 +28,7 @@
   "homepage": "https://github.com/sluh-hackclub/diagnosys#readme",
   "dependencies": {
     "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "mongoose": "^5.2.4",
@@ -36,5 +37,15 @@
   },
   "devDependencies": {
     "semistandard": "^12.0.1"
+  },
+  "semistandard": {
+    "globals": [
+      "angular"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "angular"
+    ]
   }
 }
