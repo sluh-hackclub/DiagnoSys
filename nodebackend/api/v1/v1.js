@@ -77,6 +77,11 @@ router.post('/login', (req, res, next) => {
   }
 });
 
+router.get('/logout', (req, res, next) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 router.post('/create_case', checkAuth, (req, res, next) => {
   if (typeof req.body === 'object' && req.body.primary_doctor && req.body.symptoms && typeof req.body.primary_doctor === 'string' && typeof req.body.symptoms === 'object') {
     console.log('Good request');

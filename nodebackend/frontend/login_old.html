@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Login | DiagnoSys</title>
 
 <style>
@@ -46,43 +46,27 @@ body {
 html {
   height: 100%;
 }
-
-@media (max-width: 420px) {
-  #login-top-spacing {
-    height: 150px;
-  }
-  #login-box {
-    width: 300px;
-  }
-  /* html {
-    height: initial;
-  } */
-}
-
   </style>
 </head>
 <body>
-  <!-- <figure class="image">
+  <figure class="image">
     <img src="/NEW1SMALL.png" style="position: absolute; top:0; z-index: 10; width: 20rem">
-  </figure> -->
+  </figure>
   <div class="container conHeight" style="max-width: none; width: 100%; height: 100%">
-    <div class="level-left colHeight1" id="login-top-spacing">
-      <!-- <figure class="image" style="position: absolute; top: 0">
+    <div class="level-left colHeight1">
+      <figure class="image" style="position: absolute; top: 0">
         <img src="/medical-web-designs.jpg">
-      </figure> -->
+      </figure>
     </div>
     <div class="level-right colHeight">
     <div class="card cardHeight">
-        <div class="card-content" id="login-box">
-          <!-- <p class="title is-centered"> Welcome </p> -->
-          <div style="padding-bottom: 15px;">
-            <img src="/NEW1SMALL.png" style="width: 100%;max-width:244px;/* padding-bottom: 15px; */">
-            <p style="text-align:center;/* margin-top: 10px; */margin-bottom: -5px;"><b>Sign In</b></p>
-          </div>
+        <div class="card-content">
+          <p class="title is-centered"> Welcome </p>
+
           <form action="/api/v1/login" method="post">
             <div class="field">
               <div class="control has-icons-left ">
-                <input class="input" type="email" name="email" placeholder="Email Address" required>
+                <input class="input" type="email" name="email" placeholder="Email Address">
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -90,20 +74,12 @@ html {
             </div>
             <div class="field">
                 <div class= "control has-icons-left">
-                  <input class="input" type="password" name="password" placeholder="Password" required>
+                  <input class="input" type="password" name="password" placeholder="Password">
                   <span class="icon is-small is-left">
                     <i class="fa fa-lock"></i>
                   </span>
                 </div>
             </div>
-            <!-- <div class="field">
-              <div class="control has-icons-left ">
-                <input class="input" type="text" name="domain" placeholder="Domain">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-server"></i>
-                </span>
-              </div>
-            </div> -->
             <input type="submit" class="button is-success"></input>
         </form>
         </div>
