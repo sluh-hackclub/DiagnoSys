@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -10,7 +11,12 @@ const apiV1 = require('./api/v1/v1.js');
 
 const acceptedDbTypes = ['mongodb'];
 
-dotenv.load({ path: '.env' });
+if (fs.existsSync(path.join(__dirname, '/.env'))) {
+  dotenv.load({ path: '.env' });
+} else {
+  console.error('ERROR: Missing .env file, use .env.example');
+  process.exit(1);
+}
 
 // check if the current db type is acceptable (in the array)
 if (acceptedDbTypes.indexOf(process.env.DB_TYPE) !== -1) {

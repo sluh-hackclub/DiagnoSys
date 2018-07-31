@@ -42,5 +42,10 @@
     "globals": [
       "angular"
     ]
+  },
+  "standard": {
+    "globals": [
+      "angular"
+    ]
   }
 }
