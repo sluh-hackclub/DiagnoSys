@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const speakeasy = require('speakeasy');
 // const mongoose = require('mongoose');
 
 const Doctor = require('./models/doctor.js');
@@ -51,9 +52,33 @@ router.post('/login', (req, res, next) => {
         console.log('END PASSWORD');
         bcrypt.compare(req.body.password, doc[0].password, (err, result) => {
           if (result) {
-            req.session.email = req.body.email;
-            res.redirect('/dashboard');
-            console.log('password correct as \'' + req.body.password + '\'');
+            if (doc[0].totp_secret_base32) {
+              // if the user has a 2fa secret
+              if (req.body.token) {
+                if (speakeasy.totp.verify({
+                  secret: doc[0].totp_secret_base32,
+                  encoding: 'base32',
+                  token: req.body.token
+                })) {
+                  // correct token for 2fa secret & time
+                  req.session.email = req.body.email;
+                  res.redirect('/dashboard');
+                  console.log('user logged in with totp');
+                } else {
+                  // incorrect token for 2fa secret & time
+                  res.redirect('/login');
+                }
+              } else {
+                // the user has 2fa set up but did not supply a token
+                console.log('login error missing token');
+                res.redirect('/login');
+              }
+            } else {
+              // if the user has not set up 2fa
+              req.session.email = req.body.email;
+              res.redirect('/dashboard');
+              console.log('password correct as \'' + req.body.password + '\'');
+            }
           } else {
             res.redirect('/login');
             console.log('password incorrect as \'' + req.body.password + '\'');

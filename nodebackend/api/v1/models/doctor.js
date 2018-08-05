@@ -33,6 +33,13 @@ const doctorSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  active: {
+    type: Boolean,
+    default: false
+  },
+  totp_secret_base32: {
+    type: String
   }
 });
 
