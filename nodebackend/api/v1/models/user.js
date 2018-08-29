@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // const validator = require('validator');
 
-const doctorSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true
@@ -21,8 +21,8 @@ const doctorSchema = new mongoose.Schema({
     // trim: true
   },
   hospital: {
-    type: String,
-    required: true
+    type: String
+    // required: true
     // trim: true
   },
   // salt is not required if bcrypt is used
@@ -40,7 +40,11 @@ const doctorSchema = new mongoose.Schema({
   },
   totp_secret_base32: {
     type: String
+  },
+  user_type: {
+    type: String,
+    required: true
   }
 });
 
-module.exports = mongoose.model('Doctor', doctorSchema);
+module.exports = mongoose.model('User', userSchema);

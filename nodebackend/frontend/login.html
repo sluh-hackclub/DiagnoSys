@@ -122,7 +122,7 @@ html, body {
         </div>
     </div>
   </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script type="text/javascript">
 
 const showPage = (loginState) => {
@@ -130,7 +130,6 @@ const showPage = (loginState) => {
     window.location = window.location.origin + '/dashboard';
   }
 };
-
 var checkSessionURL = window.location.origin + '/api/v1/check_login';
 var checkSessionHTTP = new XMLHttpRequest();
 checkSessionHTTP.onreadystatechange = function() {

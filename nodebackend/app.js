@@ -23,7 +23,9 @@ if (acceptedDbTypes.indexOf(process.env.DB_TYPE) !== -1) {
   if (process.env.DB_TYPE === 'mongodb') {
     // check for required env variables
     if (process.env.MONGO_HOST && process.env.MONGO_USER && process.env.MONGO_PW && process.env.MONGO_DB) {
-      mongoose.connect('mongodb+srv://' + process.env.MONGO_USER + ':' + process.env.MONGO_PW + '@' + process.env.MONGO_HOST + '/' + process.env.MONGO_DB + '?retryWrites=true').then(() => {
+      mongoose.connect('mongodb+srv://' + process.env.MONGO_USER + ':' + process.env.MONGO_PW + '@' + process.env.MONGO_HOST + '/' + process.env.MONGO_DB + '?retryWrites=true', {
+        useNewUrlParser: true
+      }).then(() => {
         console.log('Database connected');
       }).catch(err => {
         console.error('Database connection error');
@@ -48,7 +50,9 @@ app.use(express.json());
 
 if (process.env.SESSION_SECRET) {
   app.use(session({
-    secret: process.env.SESSION_SECRET
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
   }));
 } else {
   console.log('Missing env var SESSION_SECRET');

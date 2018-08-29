@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const speakeasy = require('speakeasy');
+const qrcode = require('qrcode');
 // const mongoose = require('mongoose');
 
-const Doctor = require('./models/doctor.js');
+const User = require('./models/user.js');
 const Case = require('./models/case.js');
 
 function checkAuth (req, res, next) {
@@ -17,6 +18,17 @@ function checkAuth (req, res, next) {
     });
   }
 }
+
+// function checkDoctor (req, res, next) {
+//   if (req.session.email && req.session.user_type === 'doctor') {
+//     next();
+//   } else {
+//     res.status(401).json({
+//       success: false,
+//       message: 'Not authorized'
+//     });
+//   }
+// }
 
 // router.post('/login', (req, res, next) => {
 //   console.log(req.body);
@@ -34,22 +46,11 @@ function checkAuth (req, res, next) {
 // });
 
 router.post('/login', (req, res, next) => {
-  console.log(req.body);
-  console.log(typeof req.body);
   if (req.body.email && req.body.password) {
-    Doctor.find({
+    User.find({
       email: req.body.email
     }).then(doc => {
-      console.log('BEGIN DOC SIZE');
-      console.log(doc.length);
-      console.log('END SIZE');
-      console.log('BEGIN DOC');
-      console.log(doc);
-      console.log('END OF DOC');
-      if (doc.length > 0 && doc[0].password) {
-        console.log('BEGIN PASSWORD');
-        console.log(doc[0].password);
-        console.log('END PASSWORD');
+      if (doc.length > 0 && doc[0].password && doc[0].user_type) {
         bcrypt.compare(req.body.password, doc[0].password, (err, result) => {
           if (result) {
             if (doc[0].totp_secret_base32) {
@@ -62,6 +63,7 @@ router.post('/login', (req, res, next) => {
                 })) {
                   // correct token for 2fa secret & time
                   req.session.email = req.body.email;
+                  req.session.user_type = doc[0].user_type;
                   res.redirect('/dashboard');
                   console.log('user logged in with totp');
                 } else {
@@ -76,12 +78,11 @@ router.post('/login', (req, res, next) => {
             } else {
               // if the user has not set up 2fa
               req.session.email = req.body.email;
+              req.session.user_type = doc[0].user_type;
               res.redirect('/dashboard');
-              console.log('password correct as \'' + req.body.password + '\'');
             }
           } else {
             res.redirect('/login');
-            console.log('password incorrect as \'' + req.body.password + '\'');
           }
           if (err) {
             console.log(err);
@@ -90,6 +91,7 @@ router.post('/login', (req, res, next) => {
       } else {
         // this means that there are no users with that email
         // or there is no password for that user (impossible?)
+        // or there is no user_type associated with the user
         res.redirect('/login');
       }
     }).catch(err => {
@@ -138,11 +140,12 @@ router.post('/create_case', checkAuth, (req, res, next) => {
 });
 
 router.get('/check_login', (req, res) => {
-  if (req.session.email) {
+  if (req.session.email && req.session.user_type) {
     res.status(200).json({
       success: true,
       authenticated: true,
-      email: req.session.email
+      email: req.session.email,
+      user_type: req.session.user_type
     });
   } else {
     res.status(200).json({
@@ -152,13 +155,29 @@ router.get('/check_login', (req, res) => {
   }
 });
 
-router.get('/check_session', (req, res) => {
-  console.log('BEGIN SESSON');
-  console.log(req.session);
-  console.log('BEGIN SESSION BOOL');
-  console.log(!!req.session.email);
-  console.log('END SESSION');
+router.post('/test_post', (req, res, next) => {
+  console.log(req.body);
   res.status(200).json({});
+});
+
+router.get('/gen_2fa_qrcode', (req, res, next) => {
+  const secret = speakeasy.generateSecret({length: 1000});
+  const otpauthurl = 'otpauth://totp/DiagnoSys:' + 'someaccount' + '?secret=' + secret.base32 + '&issuer=DiagnoSys';
+  qrcode.toDataURL(otpauthurl, (err, imageData) => {
+    // console.log(imageData);
+    // const img = new Buffer(imageData, 'base64');
+    // res.writeHead(200, {
+    //   'Content-Type': 'image/png',
+    //   'Content-Length': img.length
+    // });
+    // res.end(img);
+    res.status(200).json({
+      data: imageData
+    });
+    if (err) {
+      console.log(err);
+    }
+  });
 });
 
 router.use((req, res, next) => {
