@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 // const mongoose = require('mongoose');
 
-// const Doctor = require('./models/doctor.js');
+const Doctor = require('./models/doctor.js');
 const Case = require('./models/case.js');
 
 function checkAuth (req, res, next) {
@@ -16,19 +17,69 @@ function checkAuth (req, res, next) {
   }
 }
 
+// router.post('/login', (req, res, next) => {
+//   console.log(req.body);
+//   console.log(typeof req.body);
+//   if (req.body['email'] && req.body['password']) {
+//     if (req.body['password'] === 'hunter2') {
+//       req.session.email = req.body['email'];
+//       res.redirect('/dashboard');
+//     } else {
+//       res.redirect('/login');
+//     }
+//   } else {
+//     res.redirect('/login');
+//   }
+// });
+
 router.post('/login', (req, res, next) => {
   console.log(req.body);
   console.log(typeof req.body);
-  if (req.body['email'] && req.body['password']) {
-    if (req.body['password'] === 'hunter2') {
-      req.session.email = req.body['email'];
-      res.redirect('/dashboard');
-    } else {
-      res.redirect('/login');
-    }
+  if (req.body.email && req.body.password) {
+    Doctor.find({
+      email: req.body.email
+    }).then(doc => {
+      console.log('BEGIN DOC SIZE');
+      console.log(doc.length);
+      console.log('END SIZE');
+      console.log('BEGIN DOC');
+      console.log(doc);
+      console.log('END OF DOC');
+      if (doc.length > 0 && doc[0].password) {
+        console.log('BEGIN PASSWORD');
+        console.log(doc[0].password);
+        console.log('END PASSWORD');
+        bcrypt.compare(req.body.password, doc[0].password, (err, result) => {
+          if (result) {
+            req.session.email = req.body.email;
+            res.redirect('/dashboard');
+            console.log('password correct as \'' + req.body.password + '\'');
+          } else {
+            res.redirect('/login');
+            console.log('password incorrect as \'' + req.body.password + '\'');
+          }
+          if (err) {
+            console.log(err);
+          }
+        });
+      } else {
+        // this means that there are no users with that email
+        // or there is no password for that user (impossible?)
+        res.redirect('/login');
+      }
+    }).catch(err => {
+      console.log('INCOMING ERR');
+      console.log(err);
+      console.log('END OF ERR');
+    });
   } else {
     res.redirect('/login');
   }
+});
+
+router.get('/logout', (req, res, next) => {
+  req.session.destroy();
+  res.redirect('/');
 });
 
 router.post('/create_case', checkAuth, (req, res, next) => {
@@ -61,10 +112,28 @@ router.post('/create_case', checkAuth, (req, res, next) => {
   }
 });
 
-router.get('/check_login', checkAuth, (req, res) => {
-  res.status(200).json({
-    success: true
-  });
+router.get('/check_login', (req, res) => {
+  if (req.session.email) {
+    res.status(200).json({
+      success: true,
+      authenticated: true,
+      email: req.session.email
+    });
+  } else {
+    res.status(200).json({
+      success: true,
+      authenticated: false
+    });
+  }
+});
+
+router.get('/check_session', (req, res) => {
+  console.log('BEGIN SESSON');
+  console.log(req.session);
+  console.log('BEGIN SESSION BOOL');
+  console.log(!!req.session.email);
+  console.log('END SESSION');
+  res.status(200).json({});
 });
 
 router.use((req, res, next) => {
