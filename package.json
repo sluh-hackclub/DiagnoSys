@@ -27,15 +27,15 @@
   },
   "homepage": "https://github.com/sluh-hackclub/diagnosys#readme",
   "dependencies": {
-    "bcrypt": "^3.0.0",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
-    "express-session": "^1.15.6",
-    "mongoose": "^5.2.4",
-    "morgan": "^1.9.0",
-    "qrcode": "^1.2.2",
+    "bcrypt": "^3.0.6",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1",
+    "qrcode": "^1.3.3",
     "speakeasy": "^2.0.0",
-    "validator": "^10.4.0"
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "semistandard": "^12.0.1"
